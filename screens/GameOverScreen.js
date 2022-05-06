@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
+import BodyText from '../components/BodyText';
 
 const GameOverScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>Game Over!</Text>
-      <Text>Number of rounds: {props.gameRound}</Text>
-      <Text>Number was :{props.userNumber}</Text>
+      <BodyText>Game Over!</BodyText>
+      <BodyText>Number of rounds: {props.gameRound}</BodyText>
+      <BodyText>Number was :{props.userNumber}</BodyText>
       <Button title="Restart Game"  onPress={props.newGame}/>
     </View>
   );
