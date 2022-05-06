@@ -63,8 +63,8 @@ export default function App() {
   return (
     <View style={styles.screen}>
       <Header title="Guess a number" />
-      {/* {content} */}
-      <GameOverScreen/>
+      {content}
+
     </View>
   );
 }
