@@ -29,7 +29,7 @@ export default function App() {
       />
     );
   }
-  // fetchFonts();
+
 
   const startGameHandler = (selectedNumber) => {
     setUserNumber(selectedNumber);
@@ -64,6 +64,7 @@ export default function App() {
     <View style={styles.screen}>
       <Header title="Guess a number" />
       {content}
+
 
     </View>
   );
