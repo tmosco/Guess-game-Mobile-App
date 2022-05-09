@@ -5,6 +5,7 @@ import Colors from '../constants/colors';
 
 import BodyText from '../components/BodyText';
 import TitleText from '../components/TitleText';
+import MainButton from '../components/MainButton';
 
 const GameOverScreen = (props) => {
   return (
@@ -18,17 +19,18 @@ const GameOverScreen = (props) => {
         />
       </View>
       <View style={styles.resultContainer}>
-        
-      <BodyText style={styles.resultText}>
-        your phone needed <Text style={styles.highLight}>{props.gameRound}</Text> rounds to guess the
-        number <Text style={styles.highLight}>{props.userNumber}</Text>
-      </BodyText>
+        <BodyText style={styles.resultText}>
+          your phone needed{' '}
+          <Text style={styles.highLight}>{props.gameRound}</Text> rounds to
+          guess the number{' '}
+          <Text style={styles.highLight}>{props.userNumber}</Text>
+        </BodyText>
       </View>
-      <Button title="Restart Game" onPress={props.newGame} />
+      <MainButton onPress={props.newGame}>RESTART GAME</MainButton>
     </View>
   );
 };
- 
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -49,18 +51,18 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     marginVertical: 30,
   },
-  highLight:{
-    color:Colors.primary,
-    fontFamily:'open-sans-bold',
+  highLight: {
+    color: Colors.primary,
+    fontFamily: 'open-sans-bold',
   },
-  resultText:{
-    textAlign:'center',
-    fontSize:20
+  resultText: {
+    textAlign: 'center',
+    fontSize: 20,
   },
-  resultContainer:{
-    marginVertical:15,
-    marginHorizontal:30
-  }
+  resultContainer: {
+    marginVertical: 15,
+    marginHorizontal: 30,
+  },
 });
 
 export default GameOverScreen;
