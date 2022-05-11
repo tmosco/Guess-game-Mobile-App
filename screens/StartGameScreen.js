@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   View,
   Text,
@@ -28,11 +28,16 @@ const StartGameScreen = (props) => {
     Dimensions.get('window').width / 4
   );
 
-  const updateLayout = () => {
-    setButtonWidth(Dimensions.get('window').width / 4);
-  };
+  useEffect(() => {
+    const updateLayout = () => {
+      setButtonWidth(Dimensions.get('window').width / 4);
+    };
 
-  Dimensions.addEventListener('change', updateLayout);
+    const eventHandler= Dimensions.addEventListener('change', updateLayout);
+    return () => {
+      eventHandler.remove()
+    };
+  }, []);
 
   const dismissKeyboard = () => {
     Keyboard.dismiss();
