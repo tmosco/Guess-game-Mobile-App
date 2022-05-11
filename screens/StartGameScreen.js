@@ -24,6 +24,15 @@ const StartGameScreen = (props) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
+  const [buttonWidth, setButtonWidth] = useState(
+    Dimensions.get('window').width / 4
+  );
+
+  const updateLayout = () => {
+    setButtonWidth(Dimensions.get('window').width / 4);
+  };
+
+  Dimensions.addEventListener('change', updateLayout);
 
   const dismissKeyboard = () => {
     Keyboard.dismiss();
@@ -77,7 +86,7 @@ const StartGameScreen = (props) => {
 
   return (
     <ScrollView>
-      <KeyboardAvoidingView behavior='position' keyboardVerticalOffset={30}>
+      <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
         <TouchableWithoutFeedback onPress={dismissKeyboard}>
           <View style={styles.screen}>
             <TitleText style={styles.title}>Start Game!</TitleText>
@@ -94,14 +103,14 @@ const StartGameScreen = (props) => {
                 value={enteredValue}
               />
               <View style={styles.buttons}>
-                <View style={styles.buttonSize}>
+                <View style={{ width: buttonWidth }}>
                   <Button
                     title="Reset"
                     color={Colors.secondary}
                     onPress={resetInputFieldHandler}
                   />
                 </View>
-                <View style={styles.buttonSize}>
+                <View style={{ width: buttonWidth }}>
                   <Button
                     title="Confirm"
                     color={Colors.primary}
@@ -139,10 +148,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 15,
   },
-  buttonSize: {
-    // width: 80,
-    width: Dimensions.get('window').width / 4,  
-  },
+  // buttonSize: {
+  //   // width: 80,
+  //   width: Dimensions.get('window').width / 4,
+  // },
   input: {
     width: 50,
     textAlign: 'center',
