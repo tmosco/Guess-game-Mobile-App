@@ -37,7 +37,7 @@ const StartGameScreen = (props) => {
     return () => {
       eventHandler.remove()
     };
-  }, []);
+  });
 
   const dismissKeyboard = () => {
     Keyboard.dismiss();
